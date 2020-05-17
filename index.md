@@ -8,4 +8,4 @@ This is a place for miscellaneous content, braindumps, unstructured ideas, exper
 
 It is a [[personal wiki]].
 
-[https://mentalconflux.com home]
+[http://mentalconflux.com home]

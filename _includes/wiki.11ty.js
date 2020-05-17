@@ -1,7 +1,11 @@
 slugify = require("slugify");
 
+/**
+ * Convert links [[like this]] into HTML
+ * <a href="/mcwiki/like-this">like this</a>
+ * @param {string} content 
+ */
 function wikiLinkify(content) {
-    // [[like this]]
     const linkPattern = /\[\[.*?\]\]/g;
     const notLinks = content.split(linkPattern);
     const links = content.match(linkPattern);
@@ -12,18 +16,46 @@ function wikiLinkify(content) {
       return `<a href="/mcwiki/${slug}">${text}</a>`;
     }
     
+    let output = [];
     if (links && links.length > 0) {
-      let output = [];
-      
       notLinks.forEach((text, index) => {
         output.push(text);
-        console.log('links: ', links);
         links[index] && output.push(toLink(links[index]));
       })
-      return output.join("");
     } else {
-      return content;
+      output = [content];
     }
+
+    return output.join("");
+}
+
+/**
+ * Convert links like [https://example.com example link]
+ * into <a href="https://example.com">example link</a>
+ * @param {string} content
+*/
+function wikiLinkify2(content) {
+    const linkPattern = /\[http.*?\]/g;
+    const notLinks = content.split(linkPattern);
+    const links = content.match(linkPattern);
+    
+    function toLink(markup) {
+      const text = markup.slice(markup.indexOf(' ') + 1, -1);
+      const url = markup.slice(1).split(' ')[0];
+      return `<a href="${url}">${text}</a>`;
+    }
+    
+    let output = [];
+    if (links && links.length > 0) {
+      notLinks.forEach((text, index) => {
+        output.push(text);
+        links[index] && output.push(toLink(links[index]));
+      })
+    } else {
+      output = [content];
+    }
+
+    return output.join("");
 }
 
 exports.data = {
@@ -31,7 +63,7 @@ exports.data = {
 };
 
 exports.render = function (data) {
-  console.log('#D', data)
+  //console.log('#D', data)
     return `<!doctype html>
 <html lang="en">
   <head>
@@ -42,7 +74,7 @@ exports.render = function (data) {
   </head>
   <body>
     <h1>${data.page.filePathStem}</h1>
-    ${wikiLinkify(data.content)}
+    ${wikiLinkify2(wikiLinkify(data.content))}
   </body>
 </html>`;
 };

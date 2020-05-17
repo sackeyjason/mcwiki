@@ -14,7 +14,7 @@ module.exports = function (eleventyConfig) {
     "11ty.js",
     'html'
   ]);
-  //eleventyConfig.addPassthroughCopy("404.md"); //TODO: fix
+  eleventyConfig.addPassthroughCopy("404.html"); //TODO: fix
   return {
     dir: {
       output: "docs"
