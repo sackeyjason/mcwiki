@@ -8,13 +8,4 @@ This is a place for miscellaneous content, braindumps, unstructured ideas, exper
 
 It is a [[personal wiki]].
 
-It is a [hypertext](/hypertext).
-
-PW: {% link 'personal wiki' %}
-
-H: {% link "hypertext" %}
-H: {% link "A king's house (yeah)!?." %}
-
-Cake
-
 [https://mentalconflux.com home]
