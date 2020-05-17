@@ -9,3 +9,5 @@ This is a place for miscellaneous content, braindumps, unstructured ideas, exper
 It is a [[personal wiki]].
 
 [http://mentalconflux.com home]
+
+[[referral links]]
