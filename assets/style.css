@@ -11,7 +11,14 @@ body {
 }
 
 a {
-    color: red;
+    color: gold;
+}
+a:focus,
+a:hover {
+    color: orange;
+}
+a:active {
+    color: lightyellow;
 }
 :visited {
     color: tan;

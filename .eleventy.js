@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   console.log('11tyC', eleventyConfig)
   eleventyConfig.addShortcode("link", function (title) {
     const slug = slugify(title, { lower: true, strict: true });
-    return `<a href="/${slug}">${title}</a>`;
+    return `<a href="/mcwiki/${slug}">${title}</a>`;
   });
   eleventyConfig.setTemplateFormats([
     'md',
@@ -16,7 +16,8 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       output: "docs"
-    }
+    },
+    pathPrefix: "/mcwiki/"
   }
 };
 
