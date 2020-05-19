@@ -23,3 +23,34 @@ a:active {
 :visited {
     color: tan;
 }
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+hr {
+    border: 0;
+    border-top: solid 2px;
+    color: grey;
+}
+
+blockquote {
+    background: #111;
+    margin: 1rem 0;
+    padding: 1px 3rem;
+}
+
+code, pre {
+    font: 16px/1.2 Consolas, 'Droid Sans Mono', monaco, monospace;
+    background: #111;
+}
+code {
+    padding: 0.25rem;
+}
+pre {
+    padding: 1rem;
+}
+pre code {
+    background: none;
+}

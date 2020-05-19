@@ -64,16 +64,17 @@ exports.data = {
 
 exports.render = function (data) {
   //console.log('#D', data)
+  const title = data.page.filePathStem === '/index' ? data.title : data.page.filePathStem;
     return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${data.title}</title>
-    <link rel="stylesheet" href="/mcwiki/assets/style.css" />
+    <title>${title}</title>
+    <link rel="stylesheet" href="/mcwiki/assets/sakura-dark.css" />
   </head>
   <body>
-    <h1>${data.page.filePathStem}</h1>
+    <header><h1>${data.page.filePathStem}</h1></header>
     ${wikiLinkify2(wikiLinkify(data.content))}
   </body>
 </html>`;
